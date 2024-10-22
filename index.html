@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
+            background: #fff; /* or match your site's background color */
+            overflow: hidden;
+        }
+        
+        .iframe-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            background: #fff; /* or match your site's background color */
         }
         
         iframe {
@@ -28,6 +38,8 @@
     </style>
 </head>
 <body>
-    <iframe src="https://306consultants.wixsite.com/306-consultants-llc" scrolling="yes"></iframe>
+    <div class="iframe-container">
+        <iframe src="https://306consultants.wixsite.com/306-consultants-llc" scrolling="yes"></iframe>
+    </div>
 </body>
 </html>
