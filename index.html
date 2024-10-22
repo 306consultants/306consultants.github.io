@@ -20,9 +20,8 @@
             background: white;
             position: fixed;
             width: 100%;
-            -webkit-overflow-scrolling: touch;
         }
-        
+
         .scroll-container {
             position: absolute;
             top: 0;
@@ -31,8 +30,9 @@
             bottom: 0;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain; /* Prevent scroll bounce */
         }
-        
+
         iframe {
             position: absolute;
             top: -51px;
@@ -40,6 +40,7 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
+            overscroll-behavior: contain; /* Prevent scroll bounce inside the iframe */
         }
     </style>
 </head>
