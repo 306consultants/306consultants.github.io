@@ -12,17 +12,17 @@
             height: 100%;
             overflow: hidden;
             background: white;
+            -webkit-overflow-scrolling: touch;
         }
         
-        .top-cover {
-            display: none;
+        .wrapper {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 30px;
-            background: white;
-            z-index: 1;
+            right: 0;
+            bottom: 0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
         }
         
         iframe {
@@ -33,41 +33,11 @@
             height: calc(100% + 51px);
             border: none;
         }
-
-        @media screen and (max-width: 768px) {
-            .top-cover {
-                display: block;
-            }
-        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const topCover = document.querySelector('.top-cover');
-            let startY = 0;
-            let startHeight = 30;
-
-            document.body.addEventListener('touchstart', function(e) {
-                startY = e.touches[0].pageY;
-            }, {passive: false});
-
-            document.body.addEventListener('touchmove', function(e) {
-                const y = e.touches[0].pageY;
-                const diff = y - startY;
-                
-                if (diff > 0) {  // Only when pulling down
-                    const newHeight = startHeight + diff;
-                    topCover.style.height = newHeight + 'px';
-                }
-            }, {passive: false});
-
-            document.body.addEventListener('touchend', function() {
-                topCover.style.height = startHeight + 'px';
-            }, {passive: false});
-        });
-    </script>
 </head>
 <body>
-    <div class="top-cover"></div>
-    <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
+    <div class="wrapper">
+        <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
+    </div>
 </body>
 </html>
