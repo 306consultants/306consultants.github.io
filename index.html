@@ -14,30 +14,61 @@
             background: white;
         }
 
-        /* Red rectangle to cover the hidden part */
-        .red-rectangle {
-            position: absolute;
-            top: 0; /* Set to 0 to cover the part you're trying to hide */
-            left: 0;
-            width: 100%;
-            height: 51px; /* The height you want to cover */
-            background: red;
-            z-index: 2; /* Ensure it's above the iframe */
-        }
-        
+        /* Default iframe styles for desktop (no adjustments) */
         iframe {
             position: absolute;
-            top: -51px; /* Shifted up by 51px to create a hidden area */
+            top: -51px; /* Shifted up by 51px to hide */
             left: 0;
             width: 100%;
-            height: calc(100% + 51px); /* Extend the iframe height */
+            height: calc(100% + 51px);
             border: none;
-            z-index: 1; /* Below the red rectangle */
+        }
+
+        /* Mobile-only styles */
+        @media only screen and (max-width: 768px) {
+            /* Container for the iframe to manage scrolling */
+            .iframe-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden; /* Hide overflow from iframe */
+            }
+
+            /* The actual scrolling wrapper */
+            .scrollable-iframe {
+                position: absolute;
+                top: -51px; /* Move it up by the amount you want to hide */
+                left: 0;
+                width: 100%;
+                height: calc(100% + 51px); /* Adjust height to accommodate for the shifted top */
+                overflow-y: scroll; /* Enable scrolling for the iframe */
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%; /* Make iframe full size within its container */
+                border: none;
+            }
+
+            /* The red rectangle that hides the top part */
+            .cover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 51px; /* Same height as the hidden top part */
+                background-color: red; /* You can change this to whatever color or background */
+                z-index: 2; /* Ensure it's above the iframe */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="red-rectangle"></div>
-    <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
-</body>
-</html>
+    <!-- This will only be active for mobile -->
+    <div class="iframe-container">
+        <div class="scrollable-iframe">
+            <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
+        </div>
+        <!-- Red rectangle to cover the hidden area -->
+        <div class="cover"></div>
+    <
