@@ -15,13 +15,15 @@
         }
         
         .top-cover {
+            display: none; /* Hidden by default for desktop */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 61px; /* 51px + 10px extra for header adjustment */
+            height: 30px; /* Starting smaller */
             background: white;
             z-index: 1;
+            transition: height 0.1s;
         }
         
         iframe {
@@ -31,9 +33,41 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
-            z-index: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .top-cover {
+                display: block; /* Show only on mobile */
+            }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let startY = 0;
+            const topCover = document.querySelector('.top-cover');
+            const minHeight = 30; // Starting height
+
+            document.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchmove', function(e) {
+                const currentY = e.touches[0].clientY;
+                const diff = currentY - startY;
+                
+                if (diff > 0 && window.scrollY <= 0) {
+                    // Only expand when pulling down at the top
+                    const newHeight = minHeight + diff;
+                    topCover.style.height = newHeight + 'px';
+                }
+            }, { passive: true });
+
+            document.addEventListener('touchend', function() {
+                // Animate back to original height
+                topCover.style.height = minHeight + 'px';
+            }, { passive: true });
+        });
+    </script>
 </head>
 <body>
     <div class="top-cover"></div>
