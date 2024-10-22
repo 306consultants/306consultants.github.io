@@ -6,17 +6,25 @@
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
+        html {
             height: 100%;
             overflow: hidden;
+            position: relative;
+        }
+        
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             background: white;
+            position: fixed;
+            width: 100%;
             -webkit-overflow-scrolling: touch;
         }
         
-        .wrapper {
-            position: fixed;
+        .scroll-container {
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
@@ -36,7 +44,7 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="scroll-container">
         <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
     </div>
 </body>
