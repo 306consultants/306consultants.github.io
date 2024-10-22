@@ -14,17 +14,6 @@
             background: white;
         }
         
-        .red-rectangle {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 51px;
-            background: red;
-            z-index: 2;
-        }
-        
         iframe {
             position: absolute;
             top: -51px;
@@ -32,14 +21,7 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
-            z-index: 1;
             -webkit-overflow-scrolling: touch;
-        }
-
-        @media screen and (max-width: 768px) {
-            .red-rectangle {
-                display: block;
-            }
         }
     </style>
     <script>
@@ -63,7 +45,6 @@
     </script>
 </head>
 <body>
-    <div class="red-rectangle"></div>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
 </body>
 </html>
