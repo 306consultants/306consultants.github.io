@@ -2,53 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
-        * {
-            -webkit-overflow-scrolling: none;
-            overscroll-behavior: none;
-        }
-        
-        html {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        
         body {
             margin: 0;
             padding: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            position: fixed;
-            touch-action: none;
         }
         
         iframe {
-            position: fixed;
-            left: 0;
+            position: absolute;
             top: -51px;
-            width: 100vw;
-            height: calc(100vh + 51px);
+            left: 0;
+            width: 100%;
+            height: calc(100% + 51px);
             border: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            overflow-y: scroll;
+            overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
+    <iframe src="https://306consultants.wixsite.com/306-consultants-llc" scrolling="yes"></iframe>
 </body>
 </html>
