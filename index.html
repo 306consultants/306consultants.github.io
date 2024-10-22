@@ -14,6 +14,16 @@
             background: white;
         }
         
+        .top-cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 61px; /* 51px + 10px extra for header adjustment */
+            background: white;
+            z-index: 1;
+        }
+        
         iframe {
             position: absolute;
             top: -51px;
@@ -21,32 +31,12 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
+            z-index: 0;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
-            let lastY = 0;
-            
-            document.addEventListener('touchstart', function(event) {
-                lastY = event.touches[0].clientY;
-            }, { passive: false });
-
-            document.addEventListener('touchmove', function(event) {
-                const currentY = event.touches[0].clientY;
-                const direction = currentY > lastY ? 'down' : 'up';
-                
-                // If pulling down and already at top, prevent default
-                if (direction === 'down' && window.scrollY <= 0) {
-                    event.preventDefault();
-                }
-                
-                lastY = currentY;
-            }, { passive: false });
-        });
-    </script>
 </head>
 <body>
+    <div class="top-cover"></div>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
 </body>
 </html>
