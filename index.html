@@ -12,16 +12,7 @@
             height: 100%;
             overflow: hidden;
             background: white;
-        }
-        
-        .iframe-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            -webkit-overflow-scrolling: touch;
+            touch-action: none;
         }
         
         iframe {
@@ -31,12 +22,11 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
 <body>
-    <div class="iframe-container">
-        <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
-    </div>
+    <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
 </body>
 </html>
