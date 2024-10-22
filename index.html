@@ -24,9 +24,26 @@
         }
     </style>
     <script>
-        document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, { passive: false });
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            let lastY = 0;
+            
+            document.addEventListener('touchstart', function(event) {
+                lastY = event.touches[0].clientY;
+            }, { passive: false });
+
+            document.addEventListener('touchmove', function(event) {
+                const currentY = event.touches[0].clientY;
+                const direction = currentY > lastY ? 'down' : 'up';
+                
+                // If pulling down and already at top, prevent default
+                if (direction === 'down' && window.scrollY <= 0) {
+                    event.preventDefault();
+                }
+                
+                lastY = currentY;
+            }, { passive: false });
+        });
     </script>
 </head>
 <body>
