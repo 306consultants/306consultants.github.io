@@ -11,23 +11,23 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
-            background: white; /* or match your site's background color */
+            background: white;
+            overscroll-behavior: none;
         }
         
         iframe {
             position: absolute;
-            top: -51px;
+            top: 0;
             left: 0;
             width: 100%;
-            height: calc(100% + 51px);
+            height: 100%;
             border: none;
         }
 
-        /* Mobile devices */
         @media screen and (max-width: 768px) {
             iframe {
-                top: -150px; /* Increased offset for mobile */
-                height: calc(100% + 150px); /* Adjust height to match new offset */
+                top: 0;
+                height: 100%;
             }
         }
     </style>
