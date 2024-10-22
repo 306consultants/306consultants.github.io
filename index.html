@@ -20,6 +20,7 @@
             background: white;
             position: fixed;
             width: 100%;
+            -webkit-overflow-scrolling: touch;
         }
 
         .scroll-container {
@@ -30,7 +31,6 @@
             bottom: 0;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            overscroll-behavior: contain; /* Prevent scroll bounce */
         }
 
         iframe {
@@ -40,13 +40,45 @@
             width: 100%;
             height: calc(100% + 51px);
             border: none;
-            overscroll-behavior: contain; /* Prevent scroll bounce inside the iframe */
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
 <body>
     <div class="scroll-container">
-        <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
+        <iframe id="iframe" src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
     </div>
+
+    <script>
+        // Function to prevent scrolling beyond the defined boundaries (custom top and bottom)
+        function preventScrollBeyondBoundaries(iframe) {
+            iframe.onload = function() {
+                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+                iframe.contentWindow.addEventListener('scroll', function() {
+                    // Get current scroll position and boundaries
+                    const scrollTop = iframeDocument.documentElement.scrollTop || iframeDocument.body.scrollTop;
+                    const scrollHeight = iframeDocument.documentElement.scrollHeight || iframeDocument.body.scrollHeight;
+                    const clientHeight = iframeDocument.documentElement.clientHeight || iframeDocument.body.clientHeight;
+                    const customTop = -51;  // Your custom top limit
+
+                    // Ensure we can't scroll above the custom top limit
+                    if (scrollTop < customTop) {
+                        iframeDocument.documentElement.scrollTop = customTop;
+                        iframeDocument.body.scrollTop = customTop;
+                    }
+
+                    // Prevent scrolling beyond the bottom of the content
+                    if (scrollTop + clientHeight > scrollHeight) {
+                        iframeDocument.documentElement.scrollTop = scrollHeight - clientHeight;
+                        iframeDocument.body.scrollTop = scrollHeight - clientHeight;
+                    }
+                });
+            };
+        }
+
+        const iframe = document.getElementById('iframe');
+        preventScrollBeyondBoundaries(iframe);
+    </script>
 </body>
 </html>
