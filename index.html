@@ -2,35 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>306 Consultants</title>
-    <link rel="favicon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- iOS specific -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="306 Consultants">
+    
     <style>
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
+            width: 100%;
             overflow: hidden;
             background: white;
+            -webkit-text-size-adjust: 100%;
         }
         
         iframe {
-            position: absolute;
+            position: fixed;
             top: -51px;
             left: 0;
             width: 100%;
             height: calc(100% + 51px);
             border: none;
             -webkit-overflow-scrolling: touch;
+            -webkit-tap-highlight-color: transparent;
         }
 
         @media screen and (max-width: 768px) {
             iframe {
-                width: 110%;  /* Slight zoom */
-                left: -5%;    /* Center the zoomed content */
+                width: 120%;
+                left: -10%;
+                -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
             }
         }
     </style>
