@@ -5,14 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
-        
         html, body {
             margin: 0;
             padding: 0;
@@ -31,19 +27,16 @@
             border: none;
             -webkit-overflow-scrolling: touch;
         }
-
-        @media screen and (max-width: 768px) {
-            body {
-                position: fixed;
-                width: 100%;
-            }
-            
-            iframe {
-                width: 100%;
-                min-width: 100%;
-            }
-        }
     </style>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'viewport-size') {
+                // Use the viewport size sent from Wix
+                const iframe = document.querySelector('iframe');
+                iframe.style.width = event.data.width + 'px';
+            }
+        });
+    </script>
 </head>
 <body>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
