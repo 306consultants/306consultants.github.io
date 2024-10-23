@@ -23,7 +23,7 @@
             background: white;
             -webkit-text-size-adjust: 100%;
         }
-        
+
         /* Original styles for desktop */
         iframe {
             position: fixed;
@@ -37,32 +37,32 @@
             transform-origin: 0 0;
         }
 
-        /* Changes for mobile only */
+        /* Scrollable container for mobile */
         @media only screen and (max-width: 768px) {
             .container {
                 position: relative;
                 width: 100vw;
-                height: calc(100vh + 51px);  /* Adjust height for proper scrolling */
+                height: 100vh;
                 overflow-y: scroll;  /* Enables scrolling within the div */
                 overflow-x: hidden;  /* No horizontal scrolling */
             }
 
             iframe {
-                position: absolute; /* To be part of the container */
-                top: -51px;  /* Keep the banner hidden */
                 width: 100%;
-                height: calc(100% + 51px); /* Maintain proper height for iframe */
+                height: 150%;  /* Make the iframe tall enough for scrolling */
                 border: none;
+                top: -51px;  /* Keep the banner hidden */
+                position: absolute;  /* Part of the container */
             }
 
-            /* Red rectangle to cover the unwanted part */
+            /* Larger red rectangle that sits over the iframe content */
             .cover-banner {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 80px; /* Cover the unwanted content */
-                background-color: red; /* Start with red for testing */
+                height: 80px; /* Increased from 20px to 80px */
+                background-color: red; /* Still red for testing */
                 z-index: 9999; /* Ensure it sits above the iframe */
             }
 
