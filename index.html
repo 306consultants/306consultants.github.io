@@ -21,23 +21,12 @@
             position: absolute;
             top: -51px;
             left: 0;
-            width: 100%;
-            height: calc(100% + 51px);
+            width: 100vw;
+            height: calc(100vh + 51px);
             border: none;
             -webkit-overflow-scrolling: touch;
         }
     </style>
-    <script>
-        function sendSizeToWix() {
-            const iframe = document.querySelector('iframe');
-            const width = window.innerWidth;
-            iframe.contentWindow.postMessage({ type: 'container-width', width: width }, '*');
-        }
-
-        // Send size initially and on resize
-        window.addEventListener('load', sendSizeToWix);
-        window.addEventListener('resize', sendSizeToWix);
-    </script>
 </head>
 <body>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
