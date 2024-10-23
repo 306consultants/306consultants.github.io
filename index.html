@@ -55,15 +55,25 @@
                 top: 0;  /* Remove the -51px on mobile */
             }
 
-            /* Larger red rectangle that sits over the iframe content */
+            /* White rectangle that sits behind the logo */
             .cover-banner {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 80px; /* Increased from 20px to 80px */
-                background-color: red; /* Still red for testing */
-                z-index: 9999; /* Ensure it sits above the iframe */
+                height: 80px;
+                background-color: white;
+                z-index: 1;  /* Ensure it's below the logo */
+            }
+
+            /* Centered and layered logo */
+            .cover-banner img {
+                position: relative;
+                z-index: 2; /* Ensures the logo is above the rectangle */
+                height: 60px;
+                max-width: 100%; /* Makes sure the logo scales */
+                display: block;
+                margin: 0 auto;
             }
 
             /* Adjusting iframe for scaling */
@@ -78,8 +88,12 @@
 <body>
     <!-- Container holding both the iframe and the cover (for mobile only) -->
     <div class="container">
-        <!-- Larger red banner to cover unwanted content -->
-        <div class="cover-banner"></div>
+        <!-- White banner with centered and layered logo linking to www.306.llc -->
+        <div class="cover-banner">
+            <a href="https://www.306.llc">
+                <img src="logo.png" alt="306 Consultants Logo">
+            </a>
+        </div>
 
         <!-- Scrollable iframe -->
         <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
