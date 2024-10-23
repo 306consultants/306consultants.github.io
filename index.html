@@ -43,8 +43,9 @@
                 position: relative;
                 width: 100vw;
                 height: 100vh;
-                overflow-y: scroll;  /* Enables scrolling within the div */
-                overflow-x: hidden;  /* No horizontal scrolling */
+                overflow-y: auto;  /* Enable scrolling in the container */
+                overflow-x: hidden;  /* Disable horizontal scrolling */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
             }
 
             iframe {
@@ -53,6 +54,8 @@
                 height: 150%;  /* Make the iframe tall enough for scrolling */
                 border: none;
                 top: 0;  /* Remove the -51px on mobile */
+                overflow: hidden;  /* Disable internal iframe scrolling */
+                pointer-events: none; /* Disable interaction when scrolling */
             }
 
             /* White rectangle that sits behind the logo */
@@ -62,7 +65,7 @@
                 left: 0;
                 width: 100%;
                 height: 80px;
-                background-color: white;
+                background-color: orange;
                 z-index: 1;  /* Ensure it's below the logo */
             }
 
@@ -84,6 +87,21 @@
             }
         }
     </style>
+
+    <script>
+        // Disable iframe scrolling and re-enable after user interaction
+        window.addEventListener('scroll', function() {
+            const iframe = document.querySelector('iframe');
+            iframe.style.pointerEvents = 'none';  // Disable interaction while scrolling
+        });
+
+        window.addEventListener('touchend', function() {
+            const iframe = document.querySelector('iframe');
+            setTimeout(() => {
+                iframe.style.pointerEvents = 'auto';  // Re-enable interaction after scrolling stops
+            }, 300);  // Delay to ensure scroll finishes
+        });
+    </script>
 </head>
 <body>
     <!-- Container holding both the iframe and the cover (for mobile only) -->
