@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
         html, body {
@@ -21,12 +21,41 @@
             position: absolute;
             top: -51px;
             left: 0;
-            width: 100vw;
-            height: calc(100vh + 51px);
+            width: 100%;
+            height: calc(100% + 51px);
             border: none;
             -webkit-overflow-scrolling: touch;
         }
     </style>
+    <script>
+        // Function to get viewport size and send to iframe
+        function updateViewportSize() {
+            const iframe = document.querySelector('iframe');
+            const viewportSize = {
+                type: 'setViewport',
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight
+            };
+            
+            // Send size to iframe
+            iframe.contentWindow.postMessage(viewportSize, '*');
+        }
+
+        // Update on load
+        window.addEventListener('load', updateViewportSize);
+        
+        // Update on resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateViewportSize, 100);
+        });
+
+        // Update on orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(updateViewportSize, 100);
+        });
+    </script>
 </head>
 <body>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
