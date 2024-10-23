@@ -36,59 +36,19 @@
             transform-origin: 0 0;
         }
 
-        .banner-cover {
-            display: none;
-        }
-
         @media only screen and (max-width: 768px) {
             body {
                 width: 100vw;
                 overflow-x: hidden;
             }
             iframe {
-                transform: scale(1.35);
-                width: 74.07%;
-                -webkit-overflow-scrolling: touch;
-            }
-            .banner-cover {
-                display: block;
-                position: absolute;
-                top: 51px;
-                left: 0;
-                width: 100%;
-                height: 51px;
-                background: red;
-                z-index: 9999;
-                transform: scale(1.35);
-                transform-origin: 0 0;
-                pointer-events: none;
-                -webkit-transform: scale(1.35);
-                -webkit-transform-origin: 0 0;
+                transform: scale(1.35);  /* Increased from 1.3 to 1.35 */
+                width: 74.07%;  /* 100/1.35 to compensate for scale */
             }
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth <= 768) {  // Only run on mobile
-                let startY;
-                
-                document.addEventListener('touchstart', function(e) {
-                    startY = e.touches[0].pageY;
-                }, { passive: false });
-
-                document.addEventListener('touchmove', function(e) {
-                    const currentY = e.touches[0].pageY;
-                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    if (scrollTop < 51 && currentY > startY) {
-                        e.preventDefault();
-                    }
-                }, { passive: false });
-            }
-        });
-    </script>
 </head>
 <body>
-    <div class="banner-cover"></div>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
 </body>
 </html>
