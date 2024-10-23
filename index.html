@@ -40,14 +40,14 @@
                 border: none;
             }
 
-            /* Red rectangle that sits over the iframe content */
+            /* Larger red rectangle that sits over the iframe content */
             .cover-banner {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 20px; /* Adjust height to cover the unwanted part */
-                background-color: red; /* Start with red for testing */
+                height: 80px; /* Increased from 20px to 80px */
+                background-color: red; /* Still red for testing */
                 z-index: 9999; /* Ensure it sits above the iframe */
             }
 
@@ -63,7 +63,7 @@
 <body>
     <!-- Container holding both the iframe and the cover -->
     <div class="container">
-        <!-- Red banner to cover unwanted content -->
+        <!-- Larger red banner to cover unwanted content -->
         <div class="cover-banner"></div>
 
         <!-- Scrollable iframe -->
