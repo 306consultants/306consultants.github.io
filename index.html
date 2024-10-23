@@ -21,10 +21,17 @@
             position: absolute;
             top: -51px;
             left: 0;
-            width: 100vw;
-            height: calc(100vh + 51px);
+            width: 100%;
+            height: calc(100% + 51px);
             border: none;
             -webkit-overflow-scrolling: touch;
+        }
+
+        @media screen and (max-width: 768px) {
+            iframe {
+                width: 110%;  /* Slight zoom */
+                left: -5%;    /* Center the zoomed content */
+            }
         }
     </style>
 </head>
