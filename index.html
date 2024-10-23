@@ -8,8 +8,6 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    
-    <!-- iOS specific -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -35,14 +33,17 @@
             border: none;
             -webkit-overflow-scrolling: touch;
             -webkit-tap-highlight-color: transparent;
+            transform-origin: 0 0;
         }
 
-        @media screen and (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
+            body {
+                width: 100vw;
+                overflow-x: hidden;
+            }
             iframe {
-                width: 120%;
-                left: -10%;
-                -webkit-transform: translate3d(0,0,0);
-                transform: translate3d(0,0,0);
+                transform: scale(1.2);
+                width: 83.33%; /* 100/1.2 to compensate for scale */
             }
         }
     </style>
