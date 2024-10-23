@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, height=device-height">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
     <style>
         html, body {
             margin: 0;
@@ -15,6 +15,7 @@
             height: 100%;
             overflow: hidden;
             background: white;
+            width: 100%;
         }
         
         iframe {
@@ -28,16 +29,27 @@
         }
 
         @media screen and (max-width: 768px) {
+            html, body {
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
             iframe {
-                width: 100vw;
-                left: 50%;
-                transform: translateX(-50%);
+                width: 100%;
+                min-width: 100%;
+                max-width: 100%;
+                left: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
             }
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth <= 768) {  // Only run on mobile
+            if (window.innerWidth <= 768) {
                 let startY;
                 
                 document.addEventListener('touchstart', function(e) {
