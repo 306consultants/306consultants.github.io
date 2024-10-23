@@ -28,14 +28,15 @@
         }
     </style>
     <script>
-        // Listen for messages from Velo
-        window.addEventListener('message', (event) => {
-            if (event.data.type === 'viewport-size') {
-                const iframe = document.querySelector('iframe');
-                iframe.style.width = event.data.width + 'px';
-                console.log('Received width:', event.data.width);
-            }
-        });
+        function sendSizeToWix() {
+            const iframe = document.querySelector('iframe');
+            const width = window.innerWidth;
+            iframe.contentWindow.postMessage({ type: 'container-width', width: width }, '*');
+        }
+
+        // Send size initially and on resize
+        window.addEventListener('load', sendSizeToWix);
+        window.addEventListener('resize', sendSizeToWix);
     </script>
 </head>
 <body>
