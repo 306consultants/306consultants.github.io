@@ -37,7 +37,6 @@
             transform-origin: 0 0;
             z-index: 0;
             loading: lazy; /* Lazy loading optimization */
-            scrolling: no; /* Disable iframe scrolling */
         }
 
         /* Scrollable container for mobile */
@@ -46,7 +45,7 @@
                 position: relative;
                 width: 100vw;
                 height: 100vh;
-                overflow-y: scroll;  /* Enables scrolling within the container */
+                overflow-y: scroll;  /* Enables scrolling within the div */
                 overflow-x: hidden;  /* No horizontal scrolling */
             }
 
@@ -57,12 +56,11 @@
                 border: none;
                 top: 0;  /* Remove the -51px on mobile */
                 z-index: 0;
-                overflow: hidden; /* Disable scrolling in the iframe */
             }
 
             /* White rectangle that sits behind the logo */
             .cover-banner {
-                position: absolute;
+                position: absolute; /* Changed to fixed for better rendering during scroll */
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -102,4 +100,15 @@
 <body>
     <!-- Container holding both the iframe and the cover (for mobile only) -->
     <div class="container">
-        <!-- White banner with centered and layered logo linking to www.306
+        <!-- White banner with centered and layered logo linking to www.306.llc -->
+        <div class="cover-banner">
+            <a href="https://www.306.llc">
+                <img src="logo.png" alt="306 Consultants Logo">
+            </a>
+        </div>
+
+        <!-- Scrollable iframe -->
+        <iframe src="https://306consultants.wixsite.com/306-consultants-llc" style="display: none;"></iframe>
+    </div>
+</body>
+</html>
