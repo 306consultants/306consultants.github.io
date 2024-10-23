@@ -19,7 +19,8 @@
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden;
+            overflow-x: hidden; /* Disable horizontal scrolling */
+            overflow-y: auto;   /* Allow vertical scrolling */
             background: white;
             -webkit-text-size-adjust: 100%;
         }
@@ -39,7 +40,7 @@
         @media only screen and (max-width: 768px) {
             body {
                 width: 100vw;
-                overflow-x: hidden;
+                overflow-x: hidden; /* Ensure no horizontal scrolling */
             }
             iframe {
                 transform: scale(1.35);  /* Increased from 1.3 to 1.35 */
