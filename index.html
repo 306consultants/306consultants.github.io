@@ -2,66 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, height=device-height">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>306 Consultants</title>
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background: white;
-        }
-        
-        .iframe-container {
-            position: relative;
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background: white;
         }
         
         iframe {
             position: absolute;
             top: -51px;
             left: 0;
-            width: 100%;
-            height: calc(100% + 51px);
+            right: 0;
+            width: 100vw;
+            height: calc(100vh + 51px);
             border: none;
             -webkit-overflow-scrolling: touch;
         }
 
         @media screen and (max-width: 768px) {
-            .iframe-container {
-                width: 100vw;
-                overflow-x: hidden;
-            }
-            
             iframe {
                 width: 100vw;
             }
         }
-    </style>
-    <script>
-        document.addEventListener('touchstart', function(e) {
-            startY = e.touches[0].pageY;
-        }, { passive: false });
 
-        document.addEventListener('touchmove', function(e) {
-            const currentY = e.touches[0].pageY;
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            if (scrollTop < 51 && currentY > startY) {
-                e.preventDefault();
+        @media screen and (orientation: landscape) {
+            iframe {
+                height: calc(100vh + 51px);
             }
-        }, { passive: false });
-    </script>
+        }
+
+        @media screen and (orientation: portrait) {
+            iframe {
+                height: calc(100vh + 51px);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="iframe-container">
-        <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
-    </div>
+    <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
 </body>
 </html>
