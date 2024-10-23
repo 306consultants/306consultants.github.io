@@ -9,6 +9,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <style>
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
         html, body {
             margin: 0;
             padding: 0;
@@ -27,22 +31,19 @@
             border: none;
             -webkit-overflow-scrolling: touch;
         }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var frame = document.querySelector('iframe');
-            
-            frame.onload = function() {
-                // Adjust width to match content
-                frame.style.width = frame.contentWindow.document.body.scrollWidth + 'px';
-                
-                // Listen for resize events
-                window.addEventListener('resize', function() {
-                    frame.style.width = frame.contentWindow.document.body.scrollWidth + 'px';
-                });
+
+        @media screen and (max-width: 768px) {
+            body {
+                position: fixed;
+                width: 100%;
             }
-        });
-    </script>
+            
+            iframe {
+                width: 100%;
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <iframe src="https://306consultants.wixsite.com/306-consultants-llc"></iframe>
